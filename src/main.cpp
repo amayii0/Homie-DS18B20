@@ -15,7 +15,7 @@
 // Globals
   // Software specifications
     #define FW_NAME    "D1Mini-DS18B20"
-    #define FW_VERSION "0.17.2.14"
+    #define FW_VERSION "0.17.2.17"
 
 
   // DS18b20
@@ -48,7 +48,7 @@ void setupHandler() {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Homie Setup Handler
+// Homie loop Handler
 void loopHandler() {
   if (millis() - lastMeasureSent >= MEASURE_INTERVAL * 1000UL || lastMeasureSent == 0) {
     dtsensors.requestTemperatures();
@@ -65,7 +65,7 @@ void loopHandler() {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Arduino Setup Handler
+// Arduino Setup
 void setup() {
   Serial.begin(115200); // Required to enable serial output
 
@@ -81,7 +81,7 @@ void setup() {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Arduino Loop Handler
+// Arduino Loop
 void loop() {
   Homie.loop();
 }
